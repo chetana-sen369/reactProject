@@ -1,0 +1,58 @@
+
+.navbar {
+  background: linear-gradient(90deg, #2F3192 0%, #FFD230 100%);
+  padding: 20px 40px;
+  min-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Left section (logo + title) */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo {
+  height: 55px;
+  width: 55px;
+}
+
+.brandTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+}
+
+/* Nav links */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 22px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #2F3192; /* deep blue */
+  background: #FFD230;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
