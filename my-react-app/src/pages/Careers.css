@@ -114,13 +114,7 @@
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
-  transition: none !important; 
-}
-
-.jobCard button:hover,
-.jobCard button:focus {
-  background: #FFD230 !important; 
-  color: #2F3192 !important;      
+  /* transition: none !important;  */
 }
 
 .jobCard a {

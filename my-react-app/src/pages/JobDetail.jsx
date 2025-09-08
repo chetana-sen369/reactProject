@@ -199,7 +199,6 @@ export default function JobDetail() {
         <p>
           Barabari Collective democratizes freelancing opportunities for candidates from low-income, semi-urban, and rural communities through an earn-as-you-learn project-based upskilling program.
         </p>
-        <a href="https://www.barabaricollective.org/">The Barabari Collective</a>
       </section>
 
       {/* Buttons */}

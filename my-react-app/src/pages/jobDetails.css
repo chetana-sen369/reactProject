@@ -6,7 +6,7 @@
   background: #FFFFFF; 
   border-radius: 12px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", sans-serif;
   color: #2B387C; 
   line-height: 1.6;
 }
@@ -70,12 +70,6 @@ button {
 
 button:hover {
   background: #304feb; 
-  transform: translateY(-2px);
-}
-
-button:active {
-  background: #2B387C; 
-  transform: translateY(0);
 }
 
 /* Form */
@@ -136,22 +130,19 @@ form textarea {
 }
 
 
-/* Force list bullets for JobDetail component */
 .jobDetail section ul {
-  display: block !important;              /* ensures the list is block-level */
-  list-style: disc outside !important;    /* show disc bullets outside the text */
-  padding-left: 1.5rem !important;        /* space for bullets */
+  display: block !important;              
+  list-style: disc outside !important;    
+  padding-left: 1.5rem !important;       
   margin: 0.5rem 0 !important;
 }
 
 .jobDetail section ul li {
-  display: list-item !important;          /* ensures li behaves as a list item */
-  list-style: disc !important;            /* forces bullet for li */
+  display: list-item !important;         
+  list-style: disc !important;           
   color: black; 
   margin-bottom: 0.5rem;
 }
-
-/* Optional: explicitly style the marker (bullet) color */
 .jobDetail section ul li::marker {
   color: black !important;
 }

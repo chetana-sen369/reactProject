@@ -1,14 +1,25 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { jobs } from "../data/jobs";
-import "./Careers.css"
+import "./Careers.css";
 
 export default function Careers() {
   const [searchItem, setSearchItem] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [departmentFilter, setDepartmentFilter] = useState("");
   const [locationFilter, setLocationFilter] = useState("");
   const [levelFilter, setLevelFilter] = useState("");
+
+  // Debounce effect
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearch(searchItem);
+    }, 300); // 300ms delay
+
+    return () => {
+      clearTimeout(handler); // Clear previous timeout if user types again
+    };
+  }, [searchItem]);
 
   // function to reset all filters 
   const resetFilters = () => {
@@ -18,23 +29,24 @@ export default function Careers() {
     setLevelFilter("");
   };
 
-  // Filtering the jobs 
+  // Filtering the jobs using debounced search
   const filteredJobs = jobs.filter((job) => {
     const matchesSearch =
-      job.title.toLowerCase().includes(searchItem.toLowerCase()) ||
+      job.title.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
       job.tags.some((tag) =>
-        tag.toLowerCase().includes(searchItem.toLowerCase())
+        tag.toLowerCase().includes(debouncedSearch.toLowerCase())
       );
-//filtering based on department, level and location
-    const matchesDepartment = departmentFilter? job.department === departmentFilter: true;
+
+    const matchesDepartment = departmentFilter ? job.department === departmentFilter : true;
     const matchesLocation = locationFilter ? job.location === locationFilter : true;
     const matchesLevel = levelFilter ? job.level === levelFilter : true;
+
     return matchesSearch && matchesDepartment && matchesLocation && matchesLevel;
   });
 
   return (
     <div>
-       <h1 className="title">Join Barabari</h1>
+      <h1 className="title">Join Barabari</h1>
       <p className="subtitle">"We're a tech & design partner. Build products that matter."</p>
 
       <input
@@ -45,7 +57,6 @@ export default function Careers() {
         className="searchBar"
       />
 
-     
       <div className="filters">
         <select value={departmentFilter} onChange={(e) => setDepartmentFilter(e.target.value)}>
           <option value="">All Departments</option>
@@ -80,8 +91,8 @@ export default function Careers() {
               <p>Location: {job.location}</p>
               <p>{job.summary}</p>
               <div className="tags">
-                {job.tags.map((tag)=>(
-                    <span key={tag} className="tag">{tag}</span>
+                {job.tags.map((tag) => (
+                  <span key={tag} className="tag">{tag}</span>
                 ))}
               </div>
               <button>
@@ -96,4 +107,3 @@ export default function Careers() {
     </div>
   );
 }
-
